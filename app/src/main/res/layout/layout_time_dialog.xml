@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/timeLayout"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true">
+
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:id="@+id/hours"
+            android:hint="@string/hh"
+            android:inputType="number"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:importantForAutofill="no"
+            android:background="@drawable/black_border"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:id="@+id/colon_one"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:text="@string/colon"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_toEndOf="@id/hours"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:id="@+id/minutes"
+            android:layout_toEndOf="@id/colon_one"
+            android:textAlignment="center"
+            android:hint="@string/mm"
+            android:inputType="number"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:importantForAutofill="no"
+            android:background="@drawable/black_border"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toEndOf="@id/minutes"
+            android:id="@+id/colon_two"
+            android:text="@string/colon"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:id="@+id/seconds"
+            android:padding="10dp"
+            android:layout_toEndOf="@id/colon_two"
+            android:textAlignment="center"
+            android:background="@drawable/black_border"
+            android:hint="@string/ss"
+            android:inputType="number"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:importantForAutofill="no"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

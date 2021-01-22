@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title"
+        android:text="Missing Photo"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/message"
+        android:layout_below="@id/title"
+        android:text="This Quilt does not have a photo. Do you wish to proceed? You can always add a photo later."
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"/>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:id="@+id/dialog_layout"-->
+<!--        android:weightSum="100"-->
+<!--        android:layout_below="@id/message"-->
+<!--        android:layout_marginTop="20dp">-->
+
+<!--        <TextView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/cancel"-->
+<!--            android:layout_weight="50"-->
+<!--            android:text="CANCEL"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textSize="24sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="@color/teal_700"/>-->
+
+<!--        <TextView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/okay"-->
+<!--            android:layout_weight="50"-->
+<!--            android:text="YES"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textSize="24sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="@color/teal_700"/>-->
+
+<!--    </LinearLayout>-->
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/message"
+        android:layout_marginTop="15dp"
+        android:id="@+id/rejectAskAgain"
+        android:text="Don't ask me again"
+        android:textSize="16sp"
+        android:textColor="@color/black"/>
+
+</RelativeLayout>

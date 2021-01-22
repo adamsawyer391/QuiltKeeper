@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".views.NewQuiltActivity">
+
+    <ProgressBar
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/progressBar"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress"
+        android:layout_below="@id/progressBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        android:textColor="@color/black"/>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/app_bar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/collapsing_toolbar"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:contentScrim="?attr/colorPrimary">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:id="@+id/backArrow"
+                    android:layout_marginStart="10dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_backarrow_white"
+                    android:contentDescription="@string/navigate_back_to_main_activity"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_new_quilt"
+                    android:layout_toEndOf="@id/backArrow"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"/>
+
+            </RelativeLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_bar"
+        android:padding="10dp"
+        android:layout_margin="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:id="@+id/quiltPhoto"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                android:contentDescription="@string/the_primary_quilt_photo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_photo"
+                android:id="@+id/tvAddPhoto"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ivAddPhoto"
+                android:layout_toEndOf="@id/tvAddPhoto"
+                android:src="@drawable/ic_add_image"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/add_a_photo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/changePhoto"
+                android:layout_toStartOf="@id/ivChangePhoto"
+                android:layout_below="@id/quiltPhoto"
+                android:layout_marginTop="10dp"
+                android:text="@string/change_photo"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/quiltPhoto"
+                android:layout_marginTop="10dp"
+                android:id="@+id/ivChangePhoto"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_add_image"
+                android:layout_marginStart="10dp"
+                android:visibility="gone"
+                android:contentDescription="@string/change_the_photo_you_selected"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/inLayoutQuiltName"
+                android:layout_below="@id/ivAddPhoto">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/quiltName"
+                    android:hint="@string/enter_quilt_name"
+                    android:layout_marginTop="15dp"
+                    android:inputType="textCapSentences"
+                    android:importantForAutofill="no" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                android:layout_below="@id/inLayoutQuiltName"
+                android:id="@+id/pickLayout"
+                android:layout_marginTop="15dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="80"
+                    android:id="@+id/tilFinishDate">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/finishDate"
+                        android:focusable="false"
+                        android:hint="@string/date_finished"
+                        android:inputType="date"
+                        android:importantForAutofill="no" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="20"
+                    android:id="@+id/finishDatePick"
+                    android:src="@drawable/ic_calendar"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="@string/pick_a_date_you_finished_the_quilt"/>
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pickLayout"
+                android:id="@+id/tilWidth">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/width"
+                    android:hint="@string/width"
+                    android:inputType="number"
+                    android:layout_marginTop="10dp"
+                    android:tag="width"
+                    android:importantForAutofill="no" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tilWidth"
+                android:id="@+id/tilLength">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/length"
+                    android:layout_below="@id/tilWidth"
+                    android:hint="@string/length"
+                    android:inputType="number"
+                    android:layout_marginTop="10dp"
+                    android:tag="length"
+                    android:importantForAutofill="no"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100"
+                android:layout_below="@id/tilLength"
+                android:id="@+id/costLayout"
+                android:layout_marginTop="15dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="80"
+                    android:id="@+id/tilCost">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cost"
+                        android:hint="@string/cost"
+                        android:inputType="text"
+                        android:importantForAutofill="no"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="20"
+                    android:id="@+id/lengthCalculate"
+                    android:src="@drawable/ic_calculate"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="@string/calculate_cost_of_your_quilt"/>
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/costLayout"
+                android:id="@+id/tilQuiltOwner">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/quiltOwner"
+                    android:hint="@string/quilt_owner"
+                    android:inputType="textCapSentences"
+                    android:layout_marginTop="10dp"
+                    android:importantForAutofill="no"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tilStitches"
+                android:layout_below="@id/tilQuiltOwner">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/stiches"
+                    android:layout_below="@id/time"
+                    android:hint="@string/number_of_stiches"
+                    android:inputType="number"
+                    android:layout_marginTop="10dp"
+                    android:importantForAutofill="no" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/time_spent_on_project"
+                android:id="@+id/tvTime"
+                android:layout_below="@+id/tilStitches"
+                android:layout_marginTop="25dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:id="@+id/timeLayout"
+                android:layout_below="@id/tvTime"
+                android:layout_marginTop="10dp"
+                android:weightSum="100">
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:id="@+id/hours"
+                    android:hint="@string/hh"
+                    android:inputType="number"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:importantForAutofill="no"
+                    android:background="@drawable/black_border"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="@string/colon"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
+                    android:padding="10dp"
+                    android:id="@+id/minutes"
+                    android:textAlignment="center"
+                    android:hint="@string/mm"
+                    android:inputType="number"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:importantForAutofill="no"
+                    android:background="@drawable/black_border"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="@string/colon"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/seconds"
+                    android:padding="10dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/black_border"
+                    android:hint="@string/ss"
+                    android:inputType="number"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:importantForAutofill="no"/>
+
+            </LinearLayout>
+
+            <!--            MADE BY SPINNER-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/made_by"
+                android:id="@+id/tvMadeBy"
+                android:layout_below="@+id/timeLayout"
+                android:layout_marginTop="25dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner_layout"
+                android:layout_below="@id/tvMadeBy"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/black_border">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/madeBySpiner"
+                    android:padding="5dp"/>
+
+            </RelativeLayout>
+
+            <!--            MACHINE USED SPINNER-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvMachineUsed"
+                android:text="@string/machine_used"
+                android:layout_marginTop="25dp"
+                android:layout_below="@id/spinner_layout"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/machine_layout"
+                android:layout_below="@id/tvMachineUsed"
+                android:background="@drawable/black_border">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/machineUsedSpinner"
+                    android:padding="5dp"/>
+
+            </RelativeLayout>
+
+            <!--            FRAME SPINNER-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvFrame"
+                android:layout_below="@id/machine_layout"
+                android:layout_marginTop="25dp"
+                android:text="@string/frame"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/frame_layout"
+                android:background="@drawable/black_border"
+                android:layout_below="@id/tvFrame">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/frameSpinner"
+                    android:padding="5dp"/>
+
+            </RelativeLayout>
+
+            <!--            DESIGN SPINNER-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvDesign"
+                android:layout_below="@id/frame_layout"
+                android:layout_marginTop="25dp"
+                android:text="@string/design"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/design_layout"
+                android:background="@drawable/black_border"
+                android:layout_below="@id/tvDesign">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/design_spinner"
+                    android:padding="5dp"/>
+
+            </RelativeLayout>
+
+            <!--            BATTING SPINNER-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvBatting"
+                android:layout_below="@id/design_layout"
+                android:layout_marginTop="25dp"
+                android:text="@string/batting"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/batting_layout"
+                android:background="@drawable/black_border"
+                android:layout_below="@id/tvBatting">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/batting_spinner"
+                    android:padding="5dp"/>
+
+            </RelativeLayout>
+
+            <!--            TOP THREAD SPINNER-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvTopThread"
+                android:layout_below="@id/batting_layout"
+                android:layout_marginTop="25dp"
+                android:text="@string/top_thread"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/top_thread_layout"
+                android:background="@drawable/black_border"
+                android:layout_below="@id/tvTopThread">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/top_thread_spinner"
+                    android:padding="5dp"/>
+
+            </RelativeLayout>
+
+            <!--            TOP THREAD COLOR SPINNER-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvTopThreadColor"
+                android:layout_below="@id/top_thread_layout"
+                android:layout_marginTop="25dp"
+                android:text="@string/top_thread_color"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/top_thread_color_layout"
+                android:background="@drawable/black_border"
+                android:layout_below="@id/tvTopThreadColor">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/top_thread_color_spinner"
+                    android:padding="5dp"/>
+
+            </RelativeLayout>
+
+            <!--            BOBBIN SPINNER-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvBobbinThread"
+                android:layout_below="@id/top_thread_color_layout"
+                android:layout_marginTop="25dp"
+                android:text="@string/bobbin_thread"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bobbin_layout"
+                android:background="@drawable/black_border"
+                android:layout_below="@id/tvBobbinThread">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/bobbin_spinner"
+                    android:padding="5dp"/>
+
+            </RelativeLayout>
+
+            <!--            BOBBIN COLOR SPINNER-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvBobbinThreadColor"
+                android:layout_below="@id/bobbin_layout"
+                android:layout_marginTop="25dp"
+                android:text="@string/bobbin_thread_color"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bobbin_color_layout"
+                android:background="@drawable/black_border"
+                android:layout_below="@id/tvBobbinThreadColor">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/bobbin_color_spinner"
+                    android:padding="5dp"/>
+
+            </RelativeLayout>
+
+            <!--            NEEDLE SPINNER-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvNeedle"
+                android:layout_below="@id/bobbin_color_layout"
+                android:layout_marginTop="25dp"
+                android:text="@string/needle"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/needle_layout"
+                android:background="@drawable/black_border"
+                android:layout_below="@id/tvNeedle">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/needle_spinner"
+                    android:padding="5dp"/>
+
+            </RelativeLayout>
+
+            <!--            SPI SPINNER-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvSPI"
+                android:layout_below="@id/needle_layout"
+                android:layout_marginTop="25dp"
+                android:text="@string/spi"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spi_layout"
+                android:background="@drawable/black_border"
+                android:layout_below="@id/tvSPI">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/spi_spinner"
+                    android:padding="5dp"/>
+
+            </RelativeLayout>
+
+            <!--            TOWA SPINNER-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvTowa"
+                android:layout_below="@id/spi_layout"
+                android:layout_marginTop="25dp"
+                android:text="@string/towa"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/towat_layout"
+                android:background="@drawable/black_border"
+                android:layout_below="@id/tvTowa">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/towa_spinner"
+                    android:padding="5dp"/>
+
+            </RelativeLayout>
+
+            <!--            TOP TENSION SPINNER-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvTopTension"
+                android:layout_below="@id/towat_layout"
+                android:layout_marginTop="25dp"
+                android:text="@string/top_tension"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/top_tension_layout"
+                android:background="@drawable/black_border"
+                android:layout_below="@id/tvTopTension">
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/top_tension_spinner"
+                    android:padding="5dp"/>
+
+            </RelativeLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/additionalNotes"
+                android:layout_below="@id/top_tension_layout"
+                android:lines="10"
+                android:layout_marginTop="20dp"
+                android:hint="@string/additional_notes"
+                android:gravity="top"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:background="@drawable/black_border"
+                android:padding="5dp"
+                android:inputType="textCapSentences|textMultiLine"
+                android:importantForAutofill="no" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/submitButton"
+                android:padding="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_below="@id/additionalNotes"
+                android:text="@string/save_quilt"
+                android:textAllCaps="true"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginTop="25dp"
+                tools:ignore="TooManyViews" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

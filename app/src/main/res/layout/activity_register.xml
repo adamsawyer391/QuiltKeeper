@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".login.RegisterActivity"
+    android:padding="20dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/logoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/crafty_girls"
+                android:text="@string/quilt_keeper"
+                android:textColor="@color/red"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:textSize="44sp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etEmail"
+                android:layout_below="@id/logoText"
+                android:inputType="textEmailAddress"
+                android:layout_marginTop="25dp"
+                android:hint="@string/enter_email_address"
+                android:importantForAutofill="no"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etEmail"
+                android:layout_marginTop="25dp"
+                android:id="@+id/passwordLayout">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/etPassword"
+                    android:inputType="textPassword"
+                    android:hint="@string/enter_a_password"
+                    android:importantForAutofill="no"/>
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_visibility_on"
+                    android:id="@+id/eye_one"
+                    android:contentDescription="@string/visibility"
+                    android:layout_alignParentEnd="true"
+                    android:tag="1"
+                    android:layout_marginEnd="10dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/passwordLayout"
+                android:layout_marginTop="25dp"
+                android:id="@+id/confirmPasswordLayout">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/etPasswordConfirm"
+                    android:inputType="textPassword"
+                    android:hint="@string/confirm_your_password"
+                    android:importantForAutofill="no"/>
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_visibility_on"
+                    android:id="@+id/eye_two"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:tag="2"
+                    android:contentDescription="@string/visibility" />
+
+            </RelativeLayout>
+
+            <EditText
+                android:importantForAutofill="no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etFirstName"
+                android:layout_below="@id/confirmPasswordLayout"
+                android:layout_marginTop="25dp"
+                android:inputType="text"
+                android:hint="@string/enter_first_name"/>
+
+            <EditText
+                android:importantForAutofill="no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etLastName"
+                android:layout_below="@id/etFirstName"
+                android:layout_marginTop="25dp"
+                android:inputType="text"
+                android:hint="@string/enter_last_name"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/securityKeyLayout"
+                android:layout_marginTop="25dp"
+                android:layout_below="@id/etLastName">
+
+                <EditText
+                    android:importantForAutofill="no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/etSecurityKey"
+                    android:inputType="textPassword"
+                    android:hint="@string/enter_security_key"/>
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_visibility_on"
+                    android:id="@+id/eye_three"
+                    android:tag="3"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/visibility" />
+
+            </RelativeLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/submitButton"
+                android:layout_below="@id/securityKeyLayout"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
+                android:text="@string/register"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
