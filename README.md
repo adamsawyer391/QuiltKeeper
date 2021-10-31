@@ -1,5 +1,5 @@
 # QuiltKeeper
-This is one of my latests applications. It takes full advantage of the MVVM architecture alongside various Firebase tools including the Realtime Database, storage, authentication, and remote config. It has resulted in perhaps the crispiest and cleanest code I have written to date.
+This is one of my latest applications. It takes full advantage of the MVVM architecture alongside various Firebase tools including the Realtime Database, storage, authentication, and remote config. It has resulted in perhaps the crispiest and cleanest code I have written to date.
 
 The remote config tool is used to automatically inform users when an update has been made available.
 
